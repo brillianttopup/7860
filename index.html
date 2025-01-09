@@ -1,178 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Information</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Android 7 Exclusive App</title>
+  <style>
+    html, body {
+      height: 100%; /* পূর্ণ স্ক্রিনের জন্য */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f9fa; /* ডিফল্ট ব্যাকগ্রাউন্ড */
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
 
-        .container {
-            background: linear-gradient(135deg, #007991, #78ffd6);
-            padding: 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            width: 400px;
-            animation: slideIn 1s ease-out;
-        }
+    #app, #notSupported {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #fff;
-            font-size: 24px;
-            animation: glow 1.5s ease-in-out infinite alternate;
-        }
+    #app {
+      display: none; /* Default hidden */
+      background-color: #007bff;
+      color: white;
+    }
 
-        .info {
-            margin: 15px 0;
-            padding: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            font-size: 18px;
-            animation: fadeInText 1s ease-in-out forwards;
-        }
+    #notSupported {
+      display: none; /* Default hidden */
+      background-color: #ff0000;
+      color: white;
+      animation: pulse 1s infinite; /* Warning Animation */
+    }
 
-        .info span {
-            font-weight: bold;
-            color: #e0f7fa;
-            animation: slideInText 1.5s ease-out;
-        }
+    h1 {
+      font-size: 24px;
+      margin: 0;
+      padding: 10px;
+    }
 
-        .container:hover {
-            transform: scale(1.05);
-            transition: 0.5s ease;
-        }
+    p {
+      margin: 10px 0;
+      font-size: 18px;
+      padding: 0 20px;
+    }
 
-        .button-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      background-color: #ffffff;
+      color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        .button {
-            text-align: center;
-            padding: 10px 20px;
-            color: #fff;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
+    button:hover {
+      background-color: #0056b3;
+      color: white;
+    }
 
-        .help-button {
-            background: linear-gradient(135deg, #2196f3, #ffeb3b);
-        }
-
-        .help-button:hover {
-            background: linear-gradient(135deg, #1769aa, #ffcc00);
-        }
-
-        .ip-button {
-            background: #ff9800;
-        }
-
-        .ip-button:hover {
-            background: #e68900;
-        }
-
-        @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInText {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInText {
-            0% {
-                transform: translateX(-20px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #bbb, 0 0 20px #bbb;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #fff;
-            }
-        }
-
-        @media only screen and (max-width: 600px) {
-            .container {
-                width: 90%;
-                padding: 15px 20px;
-            }
-
-            .container h2 {
-                font-size: 20px;
-            }
-
-            .info {
-                font-size: 16px;
-            }
-
-            .button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-        }
-    </style>
+    /* Warning Animation */
+    @keyframes pulse {
+      0% {
+        background-color: #ff0000;
+      }
+      50% {
+        background-color: #ff4500;
+      }
+      100% {
+        background-color: #ff0000;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Profile Information</h2>
-        <div class="info">
-            <span>Agent Name:</span> ABU MUSA MOLLA
-        </div>
-        <div class="info">
-            <span>Mobile:</span> +8801333447214
-        </div>
-        <div class="info">
-            <span>Division:</span> Dhaka
-        </div>
-        <div class="info">
-            <span>District:</span> Faridpur
-        </div>
-        <div class="info">
-            <span>Thana:</span> Saltha
-        </div>
-        <div class="info">
-            <span>Street Address:</span> Sonapur
-        </div>
-        <div class="info">
-            <span>Shop Name:</span> Measures Musa Enterprise
-        </div>
-        <div class="info">
-            <span>Postal Code:</span> 7860, Bangladesh
-        </div>
-    </div>
+  <!-- Main App Content -->
+  <div id="app">
+    <h1>Welcome to the Android 7 App</h1>
+    <button id="clickMe">Click Me</button>
+    <p id="message"></p>
+  </div>
+
+  <!-- Warning Message for Unsupported Devices -->
+  <div id="notSupported">
+    <h1>⚠ WARNING! This app is not supported on your device. ⚠</h1>
+    <p>Please use an Android 7 device to access this application.</p>
+  </div>
+
+  <script>
+    // Detect User-Agent to check for Android version
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Check if the device is Android 7
+    if (userAgent.indexOf("Android 7") > -1) {
+      document.getElementById('app').style.display = 'flex'; // Show the app
+    } else {
+      document.getElementById('notSupported').style.display = 'flex'; // Show Warning with animation
+    }
+
+    // Button click functionality for Android 7 users
+    document.getElementById('clickMe').onclick = function() {
+      var message = document.getElementById('message');
+      message.textContent = "Button Clicked! Welcome to Android 7!";
+    };
+  </script>
 </body>
 </html>
