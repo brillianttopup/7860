@@ -51,22 +51,6 @@
       padding: 0 20px;
     }
 
-    button {
-      padding: 15px 25px;
-      font-size: 16px;
-      background-color: #ffffff;
-      color: #007bff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-      color: white;
-    }
-
     /* Warning Animation */
     @keyframes pulse {
       0% {
@@ -85,14 +69,13 @@
   <!-- Main App Content -->
   <div id="app">
     <h1>Infinite Genjutsu</h1>
-    <button id="clickMe">Click Me</button>
-    <p id="message"></p>
+    <p>This app is designed specifically for Android 7.</p>
   </div>
 
   <!-- Warning Message for Unsupported Devices -->
   <div id="notSupported">
-    <h1>This app is not supported on this device.</h1>
-    <p>Please use another device to access this application.</p>
+    <h1>⚠ WARNING! This app is not supported on this device. ⚠</h1>
+    <p>Please use an another device to access this application.</p>
     <!-- Warning Sound -->
     <audio id="warningSound" src="warning.mp3" loop></audio>
   </div>
@@ -108,14 +91,14 @@
       document.getElementById('notSupported').style.display = 'flex'; // Show Warning with animation
       // Play warning sound
       var sound = document.getElementById('warningSound');
-      sound.play();
+      sound.play().catch(function(error) {
+        console.log("Autoplay not allowed: ", error);
+        // Fallback for autoplay restrictions
+        sound.muted = true;
+        sound.play();
+        sound.muted = false;
+      });
     }
-
-    // Button click functionality for Android 7 users
-    document.getElementById('clickMe').onclick = function() {
-      var message = document.getElementById('message');
-      message.textContent = "Button Clicked! Welcome to Android 7!";
-    };
   </script>
 </body>
 </html>
