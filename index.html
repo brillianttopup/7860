@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Android 7 Exclusive App</title>
+  <title>Infinite Genjutsu</title>
   <style>
     html, body {
-      height: 100%; /* পূর্ণ স্ক্রিনের জন্য */
+      height: 100%;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #f8f9fa; /* ডিফল্ট ব্যাকগ্রাউন্ড */
+      background-color: #f8f9fa; /* Default background */
       font-family: Arial, sans-serif;
       text-align: center;
     }
@@ -27,13 +27,13 @@
     }
 
     #app {
-      display: none; /* Default hidden */
+      display: none;
       background-color: #007bff;
       color: white;
     }
 
     #notSupported {
-      display: none; /* Default hidden */
+      display: none;
       background-color: #ff0000;
       color: white;
       animation: pulse 1s infinite; /* Warning Animation */
@@ -84,15 +84,17 @@
 <body>
   <!-- Main App Content -->
   <div id="app">
-    <h1>Welcome to the Android 7 App</h1>
+    <h1>Infinite Genjutsu</h1>
     <button id="clickMe">Click Me</button>
     <p id="message"></p>
   </div>
 
   <!-- Warning Message for Unsupported Devices -->
   <div id="notSupported">
-    <h1>⚠ WARNING! This app is not supported on your device. ⚠</h1>
-    <p>Please use an Android 7 device to access this application.</p>
+    <h1>This app is not supported on this device.</h1>
+    <p>Please use another device to access this application.</p>
+    <!-- Warning Sound -->
+    <audio id="warningSound" src="warning.mp3" loop></audio>
   </div>
 
   <script>
@@ -104,6 +106,9 @@
       document.getElementById('app').style.display = 'flex'; // Show the app
     } else {
       document.getElementById('notSupported').style.display = 'flex'; // Show Warning with animation
+      // Play warning sound
+      var sound = document.getElementById('warningSound');
+      sound.play();
     }
 
     // Button click functionality for Android 7 users
